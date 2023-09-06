@@ -1,26 +1,10 @@
-# Media_Test
-### Test Link
-[box](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/5b8a9814-0281-48f9-a2c9-cc4b018c10b3)
-![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/5b8a9814-0281-48f9-a2c9-cc4b018c10b3)
-[Hyperlink text](raspberry-pi/test.py)
-![its-friday-dancing](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/c48d7412-1a9e-4385-b837-033e9d21a683)
-
-
-
-
-
-
-
-
-
-
-
 # Engineering_4_Notebook
 
 &nbsp;
 
 ## Table of Contents
 * [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
+* [Raspberry_Pi_Launch Pad part 1](#Launch_Pad_Part:1)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
 
 &nbsp;
@@ -47,7 +31,30 @@ Give me a link to your code. [Something like this](https://github.com/millerm22/
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
 
 &nbsp;
+## Launch_Pad_Part:1
+### Assignment Description
 
+The purpose of this assignment is to create a countdown from ten for a rocket launch. You need to use a Raspeberry Pi pico and VS Code.
+
+### Evidence 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/449f416f-f686-4f36-bb11-58b909ea0816" 
+     width="500" 
+     height="500" />
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/df4820ab-2d22-4d23-8442-0d9be207b481" 
+     width="500" 
+     height="500" />
+### Wiring
+
+This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
+### Code
+Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
+&nbsp;
 ## Onshape_Assignment_Template
 
 ### Assignment Description
