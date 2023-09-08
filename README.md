@@ -26,6 +26,19 @@ This may not be applicable to all assignments. Anything where you wire something
 ### Code
 Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
 
+
+### Test Link
+
+[Hyperlink text](http://www.google.com)      
+
+### Test Image
+
+![Picture Name Here](images/images.jpg)  
+
+### Test GIF
+
+![Picture Name Here](images/200w.gif)  
+
 ### Reflection
 
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
@@ -44,8 +57,9 @@ The purpose of this assignment is to create a countdown from ten for a rocket la
      width="500" 
      height="500" />
 ### Wiring
-
-This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f2f76f33-a8ff-4e6f-9666-02360abc213f" 
+     width="500" 
+     height="500" />
 
 ### Code
 Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
