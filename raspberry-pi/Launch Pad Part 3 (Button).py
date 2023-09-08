@@ -12,7 +12,7 @@ button_a.pull = digitalio.Pull.UP
 count = 0
 
 while True:
-    if button_a.value == False:
+    if button_a.value == True:
         for x in range(10, -1 ,-1):
             if x > 0:
                 print(x)
