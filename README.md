@@ -65,6 +65,7 @@ The purpose of this assignment is to create a countdown from ten for a rocket la
 <details open>
 <summary>Launch_Pad_Part:1 Code</summary>
 <br>
+     
 ```py
 import board
 import time
@@ -77,6 +78,7 @@ while True:
         if x == 0:
             print('LAUNCH')
 ```
+
 </details>
 
 ### Reflection
