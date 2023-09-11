@@ -62,7 +62,22 @@ The purpose of this assignment is to create a countdown from ten for a rocket la
      height="500" />
 
 ### Code
-Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+<details open>
+<summary>Launch_Pad_Part:1 Code</summary>
+<br>
+```py
+import board
+import time
+import digitalio
+
+while True:
+    for x in range(10, -1 ,-1):
+        time.sleep(1)
+        print(x)
+        if x == 0:
+            print('LAUNCH')
+```
+</details>
 
 ### Reflection
 
