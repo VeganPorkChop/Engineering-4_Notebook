@@ -33,11 +33,11 @@ Give me a link to your code. [Something like this](https://github.com/millerm22/
 
 ### Test Image
 
-![Picture Name Here](images/images.jpg)  
+![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/1f06f40f-1454-425c-afcd-7650782a2530)  
 
 ### Test GIF
 
-![Picture Name Here](images/200w.gif)  
+![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/01095b54-c438-45b1-a361-aad483911552)  
 
 ### Reflection
 
@@ -83,7 +83,8 @@ while True:
 
 ### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+Originally my code counted up from zero, but to create a negative intervol with the for function you need to start from a large number, go to a small number, but the second number will not be included in the count down. Then you need to create a negative intervol for the for loop. Additionally, the code needs to be uploaded to the Pico through code.py. To access it you need to go to File/Open File/CIRCUITPY (D:)/Code.py.
+
 
 &nbsp;
 ## Onshape_Assignment_Template
