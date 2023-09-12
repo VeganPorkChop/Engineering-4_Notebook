@@ -213,7 +213,9 @@ while True:
 ### Reflection
 
 Three things that went wrong were the countdown debounce optimization, the abort button, and the buttons input pullup:
-* 
+* If the debounce is too long, the code is really blocky and barely works, if its too short it auto aborts.
+* The abort function took a while too find, still isn't 100% reliable, something about how the function stops the code doesn't always work on VS Code.
+* The input pullup up took too long because the pins on the pico connect in weird ways so the "highways" can have multiple pins sprouting from them, but they can't receive more than one input.
 
 
 &nbsp;
