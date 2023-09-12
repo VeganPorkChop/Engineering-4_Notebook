@@ -103,6 +103,7 @@ Additionally, you must blink a red light each second of the countdown, and turn 
 <img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/bf7b505e-f29e-4c8c-af55-8ee4954ce572" 
      width="500" 
      height="500" />
+     
 ### Code
 <details open>
 <summary>Launch Pad Part 2 (Lights) Code</summary>
