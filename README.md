@@ -26,6 +26,9 @@ This may not be applicable to all assignments. Anything where you wire something
 ### Code
 Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
 
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
 
 ### Test Link
 
@@ -39,9 +42,7 @@ Give me a link to your code. [Something like this](https://github.com/millerm22/
 
 ![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/01095b54-c438-45b1-a361-aad483911552)  
 
-### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
 
 &nbsp;
 ## Launch_Pad_Part:1
@@ -85,6 +86,65 @@ while True:
 
 Originally my code counted up from zero, but to create a negative intervol with the for function you need to start from a large number, go to a small number, but the second number will not be included in the count down. Then you need to create a negative intervol for the for loop. Additionally, the code needs to be uploaded to the Pico through code.py. To access it you need to go to File/Open File/CIRCUITPY (D:)/Code.py.
 
+## Launch Pad Part 2 (Lights)
+
+### Assignment Description
+
+In this assignment you have to Countdown from 10 seconds to 0 (liftoff), and print that countdown to the serial monitor.
+Additionally, you must blink a red light each second of the countdown, and turn on a green LED to signify liftoff.
+
+
+### Evidence 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f8316ddd-25bb-409a-8b72-a0fd0cc50da0" 
+     width="500" 
+     height="500" />
+
+### Wiring
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/bf7b505e-f29e-4c8c-af55-8ee4954ce572" 
+     width="500" 
+     height="500" />
+### Code
+<details open>
+<summary>Launch Pad Part 2 (Lights) Code</summary>
+<br>
+     
+```py
+import board
+import time
+import digitalio
+
+ledRed = digitalio.DigitalInOut(board.GP0)
+ledRed.direction = digitalio.Direction.OUTPUT
+ledGreen = digitalio.DigitalInOut(board.GP1)
+ledGreen.direction = digitalio.Direction.OUTPUT
+count = 0
+
+while True:
+    for x in range(10, -1 ,-1): # for loop, in range(FROM THIS NUM, TO THIS NUM, AT THIS INTERVOL)
+        if count == 0:
+            if x > 0:
+                print(x)
+            if x == 0:
+                print('LAUNCH')
+                ledGreen.value = True # LED ON
+                count = 1
+            ledRed.value = True  #TIMED BLINK--
+            time.sleep(0.5)      #--
+            ledRed.value = False #--
+            time.sleep(0.5)      #--
+        else:
+            print('Countdown Finished')
+```
+
+</details>
+
+
+### Reflection
+
+Problems I had were the light setup code, the direction of the lights, and  preventing the code from printing 0:
+* The light setup code requires a lot of folder retrieval from libraries. It confused me, but I looked it up and now its right.
+* The direction of the lights is OUTPUT, make sure to specify otherwise whenever they turn on they won't and you'll get a positive value.
+* The code prints 0 at the end of the count down, if I removed zero from the count down, it would be 9 seconds instead of 10, my solution was to print the number when x was greater than 0, simple solve, hours of pain.
 
 &nbsp;
 ## Onshape_Assignment_Template
