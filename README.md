@@ -145,8 +145,78 @@ Problems I had were the light setup code, the direction of the lights, and  prev
 * The light setup code requires a lot of folder retrieval from libraries. It confused me, but I looked it up and now its right.
 * The direction of the lights is OUTPUT, make sure to specify otherwise whenever they turn on they won't and you'll get a positive value.
 * The code prints 0 at the end of the count down, if I removed zero from the count down, it would be 9 seconds instead of 10, my solution was to print the number when x was greater than 0, simple solve, hours of pain.
+  
+## Launch Pad Part 3 (Button)
+
+### Assignment Description
+
+This assignment uses the last assignment and you need to add a button so the countdown starts when the button is clicked, and then also add an abort option.
+
+### Evidence 
+
+<img src="" 
+     width="500" 
+     height="500" />
+
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/9a56b67f-c7b0-44ce-98ef-b063dbb52e0c" 
+     width="500" 
+     height="500" />
+
+### Code
+<details open>
+<summary>Launch Pad Part 3 (Button) Code</summary>
+<br>
+     
+```py
+import board
+import time
+import digitalio
+
+ledRed = digitalio.DigitalInOut(board.GP0)
+ledRed.direction = digitalio.Direction.OUTPUT
+ledGreen = digitalio.DigitalInOut(board.GP1)
+ledGreen.direction = digitalio.Direction.OUTPUT
+button_a = digitalio.DigitalInOut(board.GP15) # at GP15 because button interfeared with leds, refrence pico pinmap
+button_a.direction = digitalio.Direction.INPUT
+button_a.pull = digitalio.Pull.UP        # requires only two wires one to ground and the other to pin, prevents excess wires. Definition of, "fix it in code".
+
+while True:
+    if button_a.value == True:
+        time.sleep(0.1)# debounce
+        while button_a.value == false:
+            for x in range(10, -1 ,-1):
+                if x > 0:
+                    print(x)
+                if x == 0:
+                    print('LAUNCH')
+                    ledGreen.value = True
+                    time.sleep(0.1)
+                    print('Countdown Finished!')
+                    time.sleep(5)
+                ledRed.value = True
+                time.sleep(0.5)
+                ledRed.value = False
+                time.sleep(0.5)
+        print('ABORT')# code accurs when button is true
+        quit() # quits script
+        
+    else:
+        ledGreen.value = False
+        print('Waiting For Button')
+```
+
+</details> 
+
+### Reflection
+
+Three things that went wrong were the countdown debounce optimization, the abort button, and the buttons input pullup:
+* 
+
 
 &nbsp;
+
 ## Onshape_Assignment_Template
 
 ### Assignment Description
