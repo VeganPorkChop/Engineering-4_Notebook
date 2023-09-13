@@ -13,24 +13,40 @@ ledGreen.direction = digitalio.Direction.OUTPUT
 button_a = digitalio.DigitalInOut(board.GP15)
 button_a.direction = digitalio.Direction.INPUT
 button_a.pull = digitalio.Pull.UP
+st = time.monotonic()
+lt = 100000000000000000000
+z = 0
 
 while True:
     if button_a.value == False:
         for x in range(10, -1 ,-1):
+            ct = time.monotonic()
+            tp = ct-st
+            if tp >= 1/60:
+                z = 1
+            if x <= 3 and z == 1:
+                for y in range(0, 181, 1):
+                    servo1.angle = y
             if x > 0:
                 print(x)
-            if x == 0:
+            elif x == 0:
                 print('LAUNCH')
                 ledGreen.value = True
-                servo1.angle = 180
-                time.sleep(0.1)
                 print('Countdown Finished!')
-                time.sleep(5)
             ledRed.value = True
-            time.sleep(0.5)
+            ct = time.monotonic()
+            tt = ct + .5
+            while ct < tt:
+                ct = time.monotonic()
+                print(ct)
+            ct = time.monotonic()
             ledRed.value = False
-            time.sleep(0.5)
+            tt = ct + .5
+            while ct < tt:
+                ct = time.monotonic()
+                print(ct)
     else:
+        z = 0
         servo1.angle = 0
         ledGreen.value = False
         print('Waiting For Button')
