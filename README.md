@@ -4,7 +4,10 @@
 
 ## Table of Contents
 * [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
-* [Raspberry_Pi_Launch Pad part 1](#Launch_Pad_Part:1)
+* [Raspberry_Pi_Launch Pad part 1](#Launch_Pad_Part_1)
+* [Raspberry_Pi_Launch Pad part 2](#Launch_Pad_Part_2_(Lights))
+* [Raspberry_Pi_Launch Pad part 3](#Launch_Pad_Part_3_(Button))
+* [Raspberry_Pi_Launch Pad part 4](#Launch_Pad_Part_4_(Servo))
 * [Onshape_Assignment_Template](#onshape_assignment_template)
 
 &nbsp;
@@ -45,7 +48,7 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 
 
 &nbsp;
-## Launch_Pad_Part:1
+## Launch_Pad_Part_1
 ### Assignment Description
 
 The purpose of this assignment is to create a countdown from ten for a rocket launch. You need to use a Raspeberry Pi pico and VS Code.
@@ -86,7 +89,7 @@ while True:
 
 Originally my code counted up from zero, but to create a negative intervol with the for function you need to start from a large number, go to a small number, but the second number will not be included in the count down. Then you need to create a negative intervol for the for loop. Additionally, the code needs to be uploaded to the Pico through code.py. To access it you need to go to File/Open File/CIRCUITPY (D:)/Code.py.
 
-## Launch Pad Part 2 (Lights)
+## Launch_Pad_Part_2_(Lights)
 
 ### Assignment Description
 
@@ -147,7 +150,7 @@ Problems I had were the light setup code, the direction of the lights, and  prev
 * The direction of the lights is OUTPUT, make sure to specify otherwise whenever they turn on they won't and you'll get a positive value.
 * The code prints 0 at the end of the count down, if I removed zero from the count down, it would be 9 seconds instead of 10, my solution was to print the number when x was greater than 0, simple solve, hours of pain.
   
-## Launch Pad Part 3 (Button)
+## Launch_Pad_Part_3_(Button)
 
 ### Assignment Description
 
@@ -218,6 +221,26 @@ Three things that went wrong were the countdown debounce optimization, the abort
 * The abort function took a while too find, still isn't 100% reliable, something about how the function stops the code doesn't always work on VS Code.
 * The input pullup up took too long because the pins on the pico connect in weird ways so the "highways" can have multiple pins sprouting from them, but they can't receive more than one input.
 
+## Launch_Pad_Part_4_(Servo)
+
+### Assignment Description
+
+Write your assignment description here. What is the purpose of this assignment? It should be at least a few sentences.
+
+### Evidence 
+
+Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
+
+### Wiring
+
+This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
+### Code
+Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
 
 &nbsp;
 
