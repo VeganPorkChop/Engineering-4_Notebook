@@ -60,10 +60,6 @@ The purpose of this assignment is to create a countdown from ten for a rocket la
 <img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/df4820ab-2d22-4d23-8442-0d9be207b481" 
      width="500" 
      height="500" />
-### Wiring
-<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f2f76f33-a8ff-4e6f-9666-02360abc213f" 
-     width="500" 
-     height="500" />
 
 ### Code
 <details open>
