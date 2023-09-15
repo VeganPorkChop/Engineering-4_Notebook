@@ -225,8 +225,10 @@ Write your assignment description here. What is the purpose of this assignment? 
 
 ### Evidence 
 
-Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
-
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/3e8f446a-a3c5-43f9-a47a-0bc65d0482e1" 
+     width="500" 
+     height="500" />
+     
 ### Wiring
 
 This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
