@@ -60,10 +60,6 @@ The purpose of this assignment is to create a countdown from ten for a rocket la
 <img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/df4820ab-2d22-4d23-8442-0d9be207b481" 
      width="500" 
      height="500" />
-### Wiring
-<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f2f76f33-a8ff-4e6f-9666-02360abc213f" 
-     width="500" 
-     height="500" />
 
 ### Code
 <details open>
@@ -229,18 +225,124 @@ Write your assignment description here. What is the purpose of this assignment? 
 
 ### Evidence 
 
-Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
-
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/3e8f446a-a3c5-43f9-a47a-0bc65d0482e1" 
+     width="500" 
+     height="500" />
+     
 ### Wiring
 
 This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
 
 ### Code
-Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+<details open>
+<summary>Launch_Pad_Part_4_(Servo) Code</summary>
+<br>
+     
+```py
+
+import board                                   
+import time
+import digitalio
+import pwmio
+from adafruit_motor import servo
+
+pwm_servo = pwmio.PWMOut(board.GP22, duty_cycle=2 ** 15, frequency=50)
+redLED = digitalio.DigitalInOut(board.GP0) 
+greenLED = digitalio.DigitalInOut(board.GP1)
+button = digitalio.DigitalInOut(board.GP15)
+redLED.direction = digitalio.Direction.OUTPUT
+greenLED.direction = digitalio.Direction.OUTPUT
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+servo1 = servo.Servo(pwm_servo, min_pulse=500, max_pulse=2500)
+
+servo1.angle = 0
+count = 0                        
+
+while True:
+    print('waiting for button')
+    if button.value == False:
+        count = 10
+    while count > 3:                               
+        print(count)
+        redLED.value = True   
+        count = count - 1
+        time.sleep(.5)
+        redLED.value = False
+        time.sleep(.5)
+    while count > 0 & count <= 3:
+        print(count)
+        redLED.value = True
+        count = count - 1
+        for x in range(10):
+            servo1.angle = servo1.angle + 3
+            time.sleep(.05)
+        redLED.value = False
+        for x in range(10):
+            servo1.angle = servo1.angle + 3
+            time.sleep(.05)
+        if count == 0:                              
+            print("launch")
+            greenLED.value = True
+            servo1.angle = 180
+            time.sleep(5)
+```
+</details> 
 
 ### Reflection
 
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
+## Crash_Avoidance_Part_1_(Accelerometer)
+
+### Assignment Description
+
+In this assignment you have to wire an accelerometer and print its values as its collecting them.
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/728d734d-636a-49ac-937d-48bd788d310d" 
+     width="500" 
+     height="500" />
+     
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f8bc2aac-c169-47cb-9b3a-596fbcb2f2a4" 
+     width="500" 
+     height="500" />
+     
+### Code
+
+<details open>
+<summary>Crash Avoidance Part 1 (Accelerometer) Code</summary>
+<br>
+     
+```py
+
+import adafruit_mpu6050
+import busio
+import board                                   
+import time
+import digitalio
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+i2c = busio.I2C(scl_pin, sda_pin)
+mpu = adafruit_mpu6050.MPU6050(i2c)
+
+while True:
+    print("My Values:")
+    print(mpu.acceleration)
+    time.sleep(1)
+```
+</details> 
+
+### Reflection
+
+There are three things that went wrong:
+* Units: They're in m / s^2. If you're printing units make sure to add that.
+* Wiring: SDA and SCL are located on the GP14 and GP15 wires respectfully.
+* Direction: The board has the directions its facing written on it. 
 
 &nbsp;
 
