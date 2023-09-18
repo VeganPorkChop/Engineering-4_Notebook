@@ -294,7 +294,7 @@ while True:
 
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
 
-## Launch_Pad_Part_4_(Servo)
+## Crash_Avoidance_Part_1_(Accelerometer)
 
 ### Assignment Description
 
