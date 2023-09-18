@@ -301,7 +301,7 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 In this assignment you have to wire an accelerometer and print its values as its collecting them.
 ### Evidence 
 
-<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/ba2cfaf8-02e3-4e52-8837-13d54aa31dbe" 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/728d734d-636a-49ac-937d-48bd788d310d" 
      width="500" 
      height="500" />
      
