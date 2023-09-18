@@ -294,6 +294,56 @@ while True:
 
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
 
+## Launch_Pad_Part_4_(Servo)
+
+### Assignment Description
+
+In this assignment you have to wire an accelerometer and print its values as its collecting them.
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/ba2cfaf8-02e3-4e52-8837-13d54aa31dbe" 
+     width="500" 
+     height="500" />
+     
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f8bc2aac-c169-47cb-9b3a-596fbcb2f2a4" 
+     width="500" 
+     height="500" />
+     
+### Code
+
+<details open>
+<summary>Crash Avoidance Part 1 (Accelerometer) Code</summary>
+<br>
+     
+```py
+
+import adafruit_mpu6050
+import busio
+import board                                   
+import time
+import digitalio
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+i2c = busio.I2C(scl_pin, sda_pin)
+mpu = adafruit_mpu6050.MPU6050(i2c)
+
+while True:
+    print("My Values:")
+    print(mpu.acceleration)
+    time.sleep(1)
+```
+</details> 
+
+### Reflection
+
+There are three things that went wrong:
+* Units: They're in m / s^2. If you're printing units make sure to add that.
+* Wiring: SDA and SCL are located on the GP14 and GP15 wires respectfully.
+* Direction: The board has the directions its facing written on it. 
+
 &nbsp;
 
 ## Onshape_Assignment_Template
