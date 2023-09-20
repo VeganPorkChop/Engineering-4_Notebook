@@ -13,7 +13,8 @@ i2c = busio.I2C(scl_pin, sda_pin)
 mpu = adafruit_mpu6050.MPU6050(i2c)
 
 while True:
-    print("My Values:")
-    print(mpu.gyro)
-    if mpu.gyro[2] < 0.5: 
+    led.value = False
+    print(mpu.acceleration)
+    while mpu.acceleration[2] < 0.95: 
         led.value = True
+        print(mpu.acceleration)
