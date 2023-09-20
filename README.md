@@ -247,7 +247,7 @@ import digitalio
 import pwmio
 from adafruit_motor import servo
 
-pwm_servo = pwmio.PWMOut(board.GP22, duty_cycle=2 ** 15, frequency=50)
+pwm_servo = pwmio.PWMOut(board.GP22, duty_cycle=2 ** 15, frequency=50) # sets frequency of pin, idk how it works, visit(https://docs.circuitpython.org/en/latest/shared-bindings/pwmio/index.html)
 redLED = digitalio.DigitalInOut(board.GP0) 
 greenLED = digitalio.DigitalInOut(board.GP1)
 button = digitalio.DigitalInOut(board.GP15)
@@ -255,7 +255,7 @@ redLED.direction = digitalio.Direction.OUTPUT
 greenLED.direction = digitalio.Direction.OUTPUT
 button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.UP
-servo1 = servo.Servo(pwm_servo, min_pulse=500, max_pulse=2500)
+servo1 = servo.Servo(pwm_servo, min_pulse=500, max_pulse=2500) # this sets the allowed pulses and also creates an object in code
 
 servo1.angle = 0
 count = 0                        
@@ -271,7 +271,7 @@ while True:
         time.sleep(.5)
         redLED.value = False
         time.sleep(.5)
-    while count > 0 & count <= 3:
+    while count > 0 & count <= 3: # begins turning servo
         print(count)
         redLED.value = True
         count = count - 1
@@ -292,13 +292,17 @@ while True:
 
 ### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+Three things went wrong with this assignment:
+* The servo spinning is very blocky if you chunk the code and move the servo _x_ degrees every loop. So instead I spent 2 classes making it smooth by creating delays and timed intervol and moved it three degrees at a time.
+* The abort button was difficult to employ, so, sense it isn't required, I deleted it.
+* when you ask an object what its value is, you have to type: _object_.value
 
 ## Crash_Avoidance_Part_1_(Accelerometer)
 
 ### Assignment Description
 
-In this assignment you have to wire an accelerometer and print its values as its collecting them.
+In this assignment you have to wire an accelerometer and print it's values as it's collecting them.
+
 ### Evidence 
 
 <img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/728d734d-636a-49ac-937d-48bd788d310d" 
@@ -342,7 +346,62 @@ while True:
 There are three things that went wrong:
 * Units: They're in m / s^2. If you're printing units make sure to add that.
 * Wiring: SDA and SCL are located on the GP14 and GP15 wires respectfully.
-* Direction: The board has the directions its facing written on it. 
+* Direction: The board has the directions its facing written on it.
+
+## Crash_Avoidance_Part_2_(Light_+_Power)
+
+### Assignment Description
+
+The module must have an accelerometer that continuously reports x, y, and z acceleration values. The module must have an LED that turns on if the helicopter is tilted to 90 degrees. The module must be powered by a mobile power source.
+
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/7b947c59-2882-44f2-b5fd-6fffe093cfe6" 
+     width="500" 
+     height="500" />
+
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/d96d4a5e-8852-4ea4-80bd-810e1df7fdd8" 
+     width="500" 
+     height="500" /> 
+
+### Code
+
+<details open>
+<summary>Crash Avoidance Part 2 (Light + Power) Code</summary>
+<br>
+     
+```py
+import adafruit_mpu6050
+import busio
+import board                                   
+import time
+import digitalio
+
+led = digitalio.DigitalInOut(board.GP0)         # pin setup
+led.direction = digitalio.Direction.OUTPUT      --
+
+sda_pin = board.GP14                            --
+scl_pin = board.GP15                            --
+i2c = busio.I2C(scl_pin, sda_pin)               --
+mpu = adafruit_mpu6050.MPU6050(i2c) # i2c, idk how it works, look here, https://adafruit.github.io/Adafruit_MPU6050/html/class_adafruit___m_p_u6050.html
+
+while True:
+    led.value = False
+    print(mpu.acceleration)
+    while mpu.acceleration[2] < 0.95: # mpu.acceleration[2], value of only the z axis 
+        led.value = True
+        print(mpu.acceleration) # prints all acceleration values
+
+```
+</details>
+
+### Reflection
+
+Two things went wrong with this assignment:
+* I used the wrong function. I was using mpu.gyro, which measures acceleration of rotation. The correct way to do this was to measure the acceleration based on gravity.
+* I put the less than symbol the wrong way. The acceleration of gravity on the y axis is greater than .95 UNTIL it reaches about a 90* tilt.
 
 &nbsp;
 
