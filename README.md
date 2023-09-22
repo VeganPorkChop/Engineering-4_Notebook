@@ -403,6 +403,31 @@ Two things went wrong with this assignment:
 * I used the wrong function. I was using mpu.gyro, which measures acceleration of rotation. The correct way to do this was to measure the acceleration based on gravity.
 * I put the less than symbol the wrong way. The acceleration of gravity on the y axis is greater than .95 UNTIL it reaches about a 90* tilt.
 
+## Crash_Avoidance_Part_3_(OLED_Screen)
+
+### Assignment Description
+
+In this assignment the The module must have an accelerometer that continuously reports x, y, and z acceleration values. The module must have an LED that turns on if the helicopter is tilted to 90 degrees. The module must be powered by a mobile power source. The module must have an onboard screen that prints x, y, and z angular velocity values (rad/s) rounded to 3 decimal places.
+
+
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/9a49bd0d-6387-49b2-b66c-60c224dc0ea0" 
+     width="500" 
+     height="500" /> 
+
+### Wiring
+
+This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
+### Code
+Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
+
 &nbsp;
 
 ## Onshape_Assignment_Template
