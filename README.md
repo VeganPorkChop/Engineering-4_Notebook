@@ -418,10 +418,61 @@ In this assignment the The module must have an accelerometer that continuously r
 
 ### Wiring
 
-This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
-
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=33ad3a32c0&attid=0.1&permmsgid=msg-f:1777749083368132753&th=18abd55f55ef1091&view=att&disp=safe" 
+     width="500" 
+     height="500" /> 
+     
 ### Code
-Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+<details open>
+<summary>Crash_Avoidance_Part_3_(OLED_Screen) Code</summary>
+<br>
+     
+```py
+import adafruit_mpu6050                    #Imports:--
+import busio                               #--
+import board                               #--  
+import time                                #--
+import digitalio                           #--
+from adafruit_display_text import label    #--
+import adafruit_displayio_ssd1306          #--
+import terminalio                          #--    
+import displayio                           #--
+
+displayio.release_displays() #initializes displays
+
+sda_pin = board.GP14 #init SDA pin
+scl_pin = board.GP15 #init SCL pin
+
+
+i2c = busio.I2C(scl_pin, sda_pin)
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP16)
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
+mpu = adafruit_mpu6050.MPU6050(i2c, address=0x68)
+
+led = digitalio.DigitalInOut(board.GP0)
+led.direction = digitalio.Direction.OUTPUT
+
+# create the display group
+splash = displayio.Group()
+
+# add title block to display group
+title = "ANGULAR VELOCITY"
+text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
+splash.append(text_area)
+display.show(splash)
+
+while True:
+    # the order of this command is (font, text, text color, and location)
+    text_area.text = f"Rotation: \n X:{round(mpu.gyro[0],3)} \n Y:{round(mpu.gyro[1],3)} \n Z:{round(mpu.gyro[2],3)}"
+    led.value = False
+    print(mpu.acceleration)
+    while mpu.acceleration[2] < 0.95: 
+        led.value = True
+        print(mpu.acceleration)
+        text_area.text = f"Rotation: \n X:{round(mpu.gyro[0],3)} \n Y:{round(mpu.gyro[1],3)} \n Z:{round(mpu.gyro[2],3)}"
+```
+</details>
 
 ### Reflection
 
