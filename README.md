@@ -481,6 +481,100 @@ Three Things went Wrong:
 * The I2C adresses. Adding another adress to the I2C mixed everything up. I didn't have enought space on the bread board so I had to move some pins around, in turn, this messed up my wiring and I had to redo it.
 * Finding the I2C adress. The code for this is located here. It took a while to get the wiring right.
 
+## Crash Avoidance Part 4 (Altimeter)
+
+### Assignment Description
+
+The module must have an accelerometer that continuously reports x, y, and z acceleration values.
+The module must have an LED that turns on if the helicopter is tilted to 90 degrees. 
+The module must be powered by a mobile power source. 
+The module must have an onboard screen that prints x, y, and z angular velocity values (rad/s).
+The module should NOT show a warning light if the device is more than 3 meters above its starting point.
+
+### Evidence 
+
+Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
+
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/768f124e-2b9d-4ccc-bb66-46fa339f5b07" 
+     width="500" 
+     height="500" /> 
+     
+### Code
+
+<details open>
+<summary>Crash Avoidance Part 4 (Altimeter) Code</summary>
+<br>
+     
+```py
+
+import adafruit_mpu6050
+import busio
+import board                                   
+import time
+import digitalio
+from adafruit_display_text import label
+import adafruit_displayio_ssd1306
+import terminalio
+import displayio
+import adafruit_mpl3115a2
+
+displayio.release_displays()
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+
+
+i2c = busio.I2C(scl_pin, sda_pin)
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP16)
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
+mpu = adafruit_mpu6050.MPU6050(i2c, address=0x68)
+
+led = digitalio.DigitalInOut(board.GP0)
+led.direction = digitalio.Direction.OUTPUT
+
+sensor = adafruit_mpl3115a2.MPL3115A2(i2c, address=0x60)
+
+
+
+# create the display group
+splash = displayio.Group()
+
+# add title block to display group
+title = "ANGULAR VELOCITY"
+text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
+splash.append(text_area)
+display.show(splash)
+
+while True:
+     # the order of this command is (font, text, text color, and location)
+    text_area.text = f"Rotation: Altitude: \n X:{round(mpu.gyro[0],3)} {round(sensor.altitude, 3)}m \n Y:{round(mpu.gyro[1],3)} Pressure: \n Z:{round(mpu.gyro[2],3)} {round(sensor.pressure, 3)}Pa"
+    print(mpu.acceleration)
+    if mpu.acceleration[2] < 0.95 and sensor.altitude < 28: 
+        led.value = True
+    else:
+        led.value = False
+```
+</details>
+
+### Reflection
+
+Three Things Went Wrong:
+* The wiring: I Stripped everything before taking a video
+* 
+
+### Test Link
+
+[Hyperlink text](http://www.google.com)      
+
+### Test Image
+
+![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/1f06f40f-1454-425c-afcd-7650782a2530)  
+
+### Test GIF
+
+![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/01095b54-c438-45b1-a361-aad483911552)  
 &nbsp;
 
 ## Onshape_Assignment_Template
