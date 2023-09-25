@@ -476,8 +476,10 @@ while True:
 
 ### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
-
+Three Things went Wrong:
+* the fString. If you want to format an fString go to this site: https://github.com/adafruit/circuitpython/issues/4723
+* The I2C adresses. Adding another adress to the I2C mixed everything up. I didn't have enought space on the bread board so I had to move some pins around, in turn, this messed up my wiring and I had to redo it.
+* Finding the I2C adress. The code for this is located here. It took a while to get the wiring right.
 
 &nbsp;
 
