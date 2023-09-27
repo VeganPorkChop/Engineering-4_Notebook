@@ -3,11 +3,14 @@
 &nbsp;
 
 ## Table of Contents
-* [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
 * [Raspberry_Pi_Launch Pad part 1](#Launch_Pad_Part_1)
 * [Raspberry_Pi_Launch Pad part 2](#Launch_Pad_Part_2_(Lights))
 * [Raspberry_Pi_Launch Pad part 3](#Launch_Pad_Part_3_(Button))
 * [Raspberry_Pi_Launch Pad part 4](#Launch_Pad_Part_4_(Servo))
+* [Crash Avoidance Part 1 (Accelerometer)](#Crash_Avoidance_Part_1_(Accelerometer))
+* [Crash Avoidance Part 2 (Light + Power)](#Crash_Avoidance_Part_2_(Light_+_Power))
+* [Crash Avoidance Part 3 (OLED Screen)](#Crash_Avoidance_Part_3_(OLED_Screen))
+* [Crash Avoidance Part 4 (Altimeter)](#Crash_Avoidance_Part_4_(Altimeter))
 * [Onshape_Assignment_Template](#onshape_assignment_template)
 
 &nbsp;
@@ -485,7 +488,7 @@ Three Things went Wrong:
 * The I2C adresses. Adding another adress to the I2C mixed everything up. I didn't have enought space on the bread board so I had to move some pins around, in turn, this messed up my wiring and I had to redo it.
 * Finding the I2C adress. The code for this is located here. It took a while to get the wiring right.
 
-## Crash Avoidance Part 4 (Altimeter)
+## Crash_Avoidance_Part_4_(Altimeter)
 
 ### Assignment Description
 
