@@ -8,7 +8,7 @@
 * [Raspberry_Pi_Launch Pad (part 3)](#launch_pad_part_3_button)
 * [Raspberry_Pi_Launch Pad (part 4)](#launch_pad_part_4_servo)
 * [Crash Avoidance Part 1 (Accelerometer)](#crash_avoidance_part_1_accelerometer)
-* [Crash Avoidance Part 2 (Light + Power)](#crash_avoidance_part_2_light_+_power)
+* [Crash Avoidance Part 2 (Light + Power)](#crash_avoidance_part_2_light__power)
 * [Crash Avoidance Part 3 (OLED Screen)](#crash_avoidance_part_3_oled_screen)
 * [Crash Avoidance Part 4 (Altimeter)](#crash_avoidance_part_4_altimeter)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
