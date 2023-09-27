@@ -154,7 +154,7 @@ This assignment uses the last assignment and you need to add a button so the cou
 
 ### Evidence 
 
-<img src="" 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/3ffdb983-a4a6-4f69-bb49-0933b13652a5" 
      width="500" 
      height="500" />
 
@@ -418,15 +418,150 @@ In this assignment the The module must have an accelerometer that continuously r
 
 ### Wiring
 
-This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
-
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=33ad3a32c0&attid=0.1&permmsgid=msg-f:1777749083368132753&th=18abd55f55ef1091&view=att&disp=safe" 
+     width="500" 
+     height="500" /> 
+     
 ### Code
-Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+<details open>
+<summary>Crash_Avoidance_Part_3_(OLED_Screen) Code</summary>
+<br>
+     
+```py
+import adafruit_mpu6050                    #Imports:--
+import busio                               #--
+import board                               #--  
+import time                                #--
+import digitalio                           #--
+from adafruit_display_text import label    #--
+import adafruit_displayio_ssd1306          #--
+import terminalio                          #--    
+import displayio                           #--
+
+displayio.release_displays() #initializes displays
+
+sda_pin = board.GP14 #init SDA pin
+scl_pin = board.GP15 #init SCL pin
+
+
+i2c = busio.I2C(scl_pin, sda_pin)
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP16)
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
+mpu = adafruit_mpu6050.MPU6050(i2c, address=0x68)
+
+led = digitalio.DigitalInOut(board.GP0)
+led.direction = digitalio.Direction.OUTPUT
+
+# create the display group
+splash = displayio.Group()
+
+# add title block to display group
+title = "ANGULAR VELOCITY"
+text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
+splash.append(text_area)
+display.show(splash)
+
+while True:
+    # the order of this command is (font, text, text color, and location)
+    text_area.text = f"Rotation: \n X:{round(mpu.gyro[0],3)} \n Y:{round(mpu.gyro[1],3)} \n Z:{round(mpu.gyro[2],3)}"
+    led.value = False
+    print(mpu.acceleration)
+    while mpu.acceleration[2] < 0.95: 
+        led.value = True
+        print(mpu.acceleration)
+        text_area.text = f"Rotation: \n X:{round(mpu.gyro[0],3)} \n Y:{round(mpu.gyro[1],3)} \n Z:{round(mpu.gyro[2],3)}"
+```
+</details>
 
 ### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+Three Things went Wrong:
+* the fString. If you want to format an fString go to this site: https://github.com/adafruit/circuitpython/issues/4723
+* The I2C adresses. Adding another adress to the I2C mixed everything up. I didn't have enought space on the bread board so I had to move some pins around, in turn, this messed up my wiring and I had to redo it.
+* Finding the I2C adress. The code for this is located here. It took a while to get the wiring right.
 
+## Crash Avoidance Part 4 (Altimeter)
+
+### Assignment Description
+
+The module must have an accelerometer that continuously reports x, y, and z acceleration values.
+The module must have an LED that turns on if the helicopter is tilted to 90 degrees. 
+The module must be powered by a mobile power source. 
+The module must have an onboard screen that prints x, y, and z angular velocity values (rad/s).
+The module should NOT show a warning light if the device is more than 3 meters above its starting point.
+
+### Evidence 
+
+
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/768f124e-2b9d-4ccc-bb66-46fa339f5b07" 
+     width="500" 
+     height="500" /> 
+     
+### Code
+
+<details open>
+<summary>Crash Avoidance Part 4 (Altimeter) Code</summary>
+<br>
+     
+```py
+
+import adafruit_mpu6050
+import busio
+import board                                   
+import time
+import digitalio
+from adafruit_display_text import label
+import adafruit_displayio_ssd1306
+import terminalio
+import displayio
+import adafruit_mpl3115a2
+
+displayio.release_displays()
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+
+
+i2c = busio.I2C(scl_pin, sda_pin)
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP16)
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
+mpu = adafruit_mpu6050.MPU6050(i2c, address=0x68)
+
+led = digitalio.DigitalInOut(board.GP0)
+led.direction = digitalio.Direction.OUTPUT
+
+sensor = adafruit_mpl3115a2.MPL3115A2(i2c, address=0x60)
+
+
+
+# create the display group
+splash = displayio.Group()
+
+# add title block to display group
+title = "ANGULAR VELOCITY"
+text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
+splash.append(text_area)
+display.show(splash)
+
+while True:
+     # the order of this command is (font, text, text color, and location)
+    text_area.text = f"Rotation: Altitude: \n X:{round(mpu.gyro[0],3)} {round(sensor.altitude, 3)}m \n Y:{round(mpu.gyro[1],3)} Pressure: \n Z:{round(mpu.gyro[2],3)} {round(sensor.pressure, 3)}Pa"
+    print(mpu.acceleration)
+    if mpu.acceleration[2] < 0.95 and sensor.altitude < 28: 
+        led.value = True
+    else:
+        led.value = False
+```
+</details>
+
+### Reflection
+
+Two Things Went Wrong:
+* The wiring: I Stripped everything before taking a video.
+* I couldn't get the I2C function to work, the problem was the wiring, make sure that the GND rail on your breadboard is connected to GND on your pico.
 
 &nbsp;
 
