@@ -221,7 +221,11 @@ Three things that went wrong were the countdown debounce optimization, the abort
 
 ### Assignment Description
 
-Write your assignment description here. What is the purpose of this assignment? It should be at least a few sentences.
+Countdown from 10 seconds to 0 (liftoff). Print that countdown to the serial monitor.
+Blink a red light each second of the countdown, and turn on a green LED to signify liftoff.
+Include a physical button that starts the countdown. 
+Actuate a 180 degree servo on liftoff to simulate the launch tower disconnecting.
+
 
 ### Evidence 
 
@@ -231,7 +235,7 @@ Write your assignment description here. What is the purpose of this assignment? 
      
 ### Wiring
 
-This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
 
 ### Code
 
