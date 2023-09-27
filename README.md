@@ -493,7 +493,6 @@ The module should NOT show a warning light if the device is more than 3 meters a
 
 ### Evidence 
 
-Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
 
 ### Wiring
 
@@ -560,21 +559,10 @@ while True:
 
 ### Reflection
 
-Three Things Went Wrong:
-* The wiring: I Stripped everything before taking a video
-* 
+Two Things Went Wrong:
+* The wiring: I Stripped everything before taking a video.
+* I couldn't get the I2C function to work, the problem was the wiring, make sure that the GND rail on your breadboard is connected to GND on your pico.
 
-### Test Link
-
-[Hyperlink text](http://www.google.com)      
-
-### Test Image
-
-![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/1f06f40f-1454-425c-afcd-7650782a2530)  
-
-### Test GIF
-
-![Picture Name Here](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/01095b54-c438-45b1-a361-aad483911552)  
 &nbsp;
 
 ## Onshape_Assignment_Template
