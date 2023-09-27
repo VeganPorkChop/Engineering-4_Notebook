@@ -3,14 +3,14 @@
 &nbsp;
 
 ## Table of Contents
-* [Raspberry_Pi_Launch Pad part 1](#Launch_Pad_Part_1)
-* [Raspberry_Pi_Launch Pad part 2](#Launch_Pad_Part_2_(Lights))
-* [Raspberry_Pi_Launch Pad part 3](#Launch_Pad_Part_3_(Button))
-* [Raspberry_Pi_Launch Pad part 4](#Launch_Pad_Part_4_(Servo))
-* [Crash Avoidance Part 1 (Accelerometer)](#Crash_Avoidance_Part_1_(Accelerometer))
-* [Crash Avoidance Part 2 (Light + Power)](#Crash_Avoidance_Part_2_(Light_+_Power))
-* [Crash Avoidance Part 3 (OLED Screen)](#Crash_Avoidance_Part_3_(OLED_Screen))
-* [Crash Avoidance Part 4 (Altimeter)](#Crash_Avoidance_Part_4_(Altimeter))
+* [Raspberry_Pi_Launch Pad part 1](#launch_pad_part_1)
+* [Raspberry_Pi_Launch Pad part 2](#launch_pad_part_2_(lights))
+* [Raspberry_Pi_Launch Pad part 3](#launch_pad_part_3_(button))
+* [Raspberry_Pi_Launch Pad part 4](#aunch_pad_part_4_(servo))
+* [Crash Avoidance Part 1 (Accelerometer)](#crash_avoidance_part_1_(accelerometer))
+* [Crash Avoidance Part 2 (Light + Power)](#crash_avoidance_part_2_(light_+_power))
+* [Crash Avoidance Part 3 (OLED Screen)](#crash_avoidance_part_3_(oled_screen))
+* [Crash Avoidance Part 4 (Altimeter)](#crash_avoidance_part_4_(altimeter))
 * [Onshape_Assignment_Template](#onshape_assignment_template)
 
 &nbsp;
