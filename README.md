@@ -188,17 +188,17 @@ while True:
         while button_a.value == false:
             for x in range(10, -1 ,-1):
                 if x > 0:
-                    print(x)
+                    print(x) # Prints for loop val
                 if x == 0:
                     print('LAUNCH')
                     ledGreen.value = True
                     time.sleep(0.1)
                     print('Countdown Finished!')
                     time.sleep(5)
-                ledRed.value = True
-                time.sleep(0.5)
-                ledRed.value = False
-                time.sleep(0.5)
+                ledRed.value = True   #Blinks Light--
+                time.sleep(0.5)       --
+                ledRed.value = False  --
+                time.sleep(0.5)       --
         print('ABORT')# code accurs when button is true
         quit() # quits script
         
