@@ -614,7 +614,7 @@ A beam must stick straight out from a predetermined platform, and the beam gets 
 
 ### Part Image
 
-!()[https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/208aaf0e-65b5-4077-bf3f-16a580161035]
+![](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/208aaf0e-65b5-4077-bf3f-16a580161035)
 
 ### Reflection
 
@@ -635,7 +635,7 @@ For this assignment we were instructed to take our previous part and use FDA to 
 
 ### Part Image
 
-!()[https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/835d7772-9255-4fef-b6d9-5831a0995b86]
+![](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/835d7772-9255-4fef-b6d9-5831a0995b86)
 
 ### Reflection
 
