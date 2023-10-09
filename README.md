@@ -659,9 +659,11 @@ After simulation, you should have an idea of where your beam needs to improve. N
 
 Three things went wrong:
 * When creating the force, the window that pops up prompt you for a direction based on a mate connecter, an instance and the option to load a region. LOAD THE REGION, without any regions loaded, my design holds 25 lbs of force, but with the loading it holds 5.
+
 <img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/49f29cfd-e078-4d79-890d-97ece9d93a4b" 
      width="500" 
      height="500" />
+     
 * Holes in designs are very useful, sense the restrictions were revolved around us not being allowed to create overhangs over 45*, I was at a loss as to how to make the design better, but, we're allowed to use holes at the maximum size of 5mm. These holes take away unnessisary material and allow you to use it elsewhere.
 * Corners of builds are considered breakpoints, this is because all of the stress is compiled into one small edge. Use the fillet tool to reduce this problem, but not the chamfer because that tool doesnt allow for curveness, and that's a nesesity for structural integrity.
 
