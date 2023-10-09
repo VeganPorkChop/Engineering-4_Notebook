@@ -667,6 +667,10 @@ Three things went wrong:
 * Holes in designs are very useful, sense the restrictions were revolved around us not being allowed to create overhangs over 45*, I was at a loss as to how to make the design better, but, we're allowed to use holes at the maximum size of 5mm. These holes take away unnessisary material and allow you to use it elsewhere.
 * Corners of builds are considered breakpoints, this is because all of the stress is compiled into one small edge. Use the fillet tool to reduce this problem, but not the chamfer because that tool doesnt allow for curveness, and that's a nesesity for structural integrity.
 
+Improvments:
+* N/A, our sedign in more complicated and gholds the same weight due to an unfortunate mishap.
+* Designing speed, I spent 8 hours designing this incorrectly, I learned how to OnShape faster and thats it.
+
 &nbsp;
 
 ## Media Test
