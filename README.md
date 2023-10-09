@@ -614,7 +614,9 @@ A beam must stick straight out from a predetermined platform, and the beam gets 
 
 ### Part Image
 
-![Beam Starter + Holder Copy 1](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/208aaf0e-65b5-4077-bf3f-16a580161035)
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/208aaf0e-65b5-4077-bf3f-16a580161035" 
+     width="500" 
+     height="500" /> 
 
 ### Reflection
 
@@ -622,6 +624,26 @@ For this assignment, three things went wrong:
 * The weight of the object was way too large, so we took advantage of the fact that the nozel is 0.04mm. We removed a 0.03mm layer so that the computer would think that it weighs less than it actually does.
 * We had too much weight again, so this time we filleted the edges down.
 * Originally, the document was unable to be copyed, so we spent a portion of the first class trying to export the object and import it into our own doc which eventually failed because STEP files dont save individual parts, so we couldnt accuratly measure weight.
+
+## FEA_Part_3_(Analysis)
+
+### Assignment Description
+
+For this assignment we were instructed to take our previous part and use FDA to analyse the stress on our part. We Examined the beams we just created in Onshape, and try to optimize the beam in two ways. Our goal was to minimize beam bending while maximizing the mass the beam can support before failing.
+
+### Part Link 
+
+[Onshape Link](https://cvilleschools.onshape.com/documents/92a40a9416b5315e6a429686/w/2b2c3d00de9869597b85e9c4/e/d26c7202e8ba614aecbc70b2)
+
+### Part Image
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/835d7772-9255-4fef-b6d9-5831a0995b86" 
+     width="500" 
+     height="500" /> 
+
+### Reflection
+
+The FDA simulation forced us to make a big decision fix our curent design or scrap it and start over with the new information we have learned. We decided to do both and redesign the previous part in a new part studio with some new additions. This proved to be the most efective path as we where much faster in creating the new part. Unfortunatly, this was a group project and one of the two groupmates, Jakob, didn't manage to help.
 
 &nbsp;
 
