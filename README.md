@@ -641,6 +641,30 @@ For this assignment we were instructed to take our previous part and use FDA to 
 
 The FDA simulation forced us to make a big decision fix our curent design or scrap it and start over with the new information we have learned. We decided to do both and redesign the previous part in a new part studio with some new additions. This proved to be the most efective path as we where much faster in creating the new part. Unfortunatly, this was a group project and one of the two groupmates, Jakob, didn't manage to help.
 
+## FEA_Part_4_(Iterative_Design)
+
+### Assignment Description
+
+After simulation, you should have an idea of where your beam needs to improve. Now you’ll enter the iterative design cycle. Improve the beam based on your findings from the FEA simulation, then simulate again. You should be able to dramatically reduce the maximum stress and bending of the beam over the course of several simulations and redesigns. 
+
+### Part Link 
+
+[ENGR4 Beam Starter Document - Graham and Jacob](https://cvilleschools.onshape.com/documents/92a40a9416b5315e6a429686/w/2b2c3d00de9869597b85e9c4/e/0af744a4e82b10b8a53d9b22)
+
+### Part Image
+
+![Assembly 1](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/97dc9db0-4a3e-4a36-9487-72c039fae1a8)
+
+### Reflection
+
+Three things went wrong:
+* When creating the force, the window that pops up prompt you for a direction based on a mate connecter, an instance and the option to load a region. LOAD THE REGION, without any regions loaded, my design holds 25 lbs of force, but with the loading it holds 5.
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/49f29cfd-e078-4d79-890d-97ece9d93a4b" 
+     width="500" 
+     height="500" />
+* Holes in designs are very useful, sense the restrictions were revolved around us not being allowed to create overhangs over 45*, I was at a loss as to how to make the design better, but, we're allowed to use holes at the maximum size of 5mm. These holes take away unnessisary material and allow you to use it elsewhere.
+* Corners of builds are considered breakpoints, this is because all of the stress is compiled into one small edge. Use the fillet tool to reduce this problem, but not the chamfer because that tool doesnt allow for curveness, and that's a nesesity for structural integrity.
+
 &nbsp;
 
 ## Media Test
