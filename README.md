@@ -3,11 +3,14 @@
 &nbsp;
 
 ## Table of Contents
-* [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
-* [Raspberry_Pi_Launch Pad part 1](#Launch_Pad_Part_1)
-* [Raspberry_Pi_Launch Pad part 2](#Launch_Pad_Part_2_(Lights))
-* [Raspberry_Pi_Launch Pad part 3](#Launch_Pad_Part_3_(Button))
-* [Raspberry_Pi_Launch Pad part 4](#Launch_Pad_Part_4_(Servo))
+* [Raspberry_Pi_Launch Pad (part 1)](#launch_pad_part_1)
+* [Raspberry_Pi_Launch Pad (part 2)](#launch_pad_part_2_lights)
+* [Raspberry_Pi_Launch Pad (part 3)](#launch_pad_part_3_button)
+* [Raspberry_Pi_Launch Pad (part 4)](#launch_pad_part_4_servo)
+* [Crash Avoidance Part 1 (Accelerometer)](#crash_avoidance_part_1_accelerometer)
+* [Crash Avoidance Part 2 (Light + Power)](#crash_avoidance_part_2_light__power)
+* [Crash Avoidance Part 3 (OLED Screen)](#crash_avoidance_part_3_oled_screen)
+* [Crash Avoidance Part 4 (Altimeter)](#crash_avoidance_part_4_altimeter)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
 
 &nbsp;
@@ -188,17 +191,17 @@ while True:
         while button_a.value == false:
             for x in range(10, -1 ,-1):
                 if x > 0:
-                    print(x)
+                    print(x) # Prints for loop val
                 if x == 0:
                     print('LAUNCH')
                     ledGreen.value = True
                     time.sleep(0.1)
                     print('Countdown Finished!')
                     time.sleep(5)
-                ledRed.value = True
-                time.sleep(0.5)
-                ledRed.value = False
-                time.sleep(0.5)
+                ledRed.value = True   #Blinks Light--
+                time.sleep(0.5)       --
+                ledRed.value = False  --
+                time.sleep(0.5)       --
         print('ABORT')# code accurs when button is true
         quit() # quits script
         
@@ -221,7 +224,11 @@ Three things that went wrong were the countdown debounce optimization, the abort
 
 ### Assignment Description
 
-Write your assignment description here. What is the purpose of this assignment? It should be at least a few sentences.
+Countdown from 10 seconds to 0 (liftoff). Print that countdown to the serial monitor.
+Blink a red light each second of the countdown, and turn on a green LED to signify liftoff.
+Include a physical button that starts the countdown. 
+Actuate a 180 degree servo on liftoff to simulate the launch tower disconnecting.
+
 
 ### Evidence 
 
@@ -231,7 +238,7 @@ Write your assignment description here. What is the purpose of this assignment? 
      
 ### Wiring
 
-This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
 
 ### Code
 
@@ -481,7 +488,7 @@ Three Things went Wrong:
 * The I2C adresses. Adding another adress to the I2C mixed everything up. I didn't have enought space on the bread board so I had to move some pins around, in turn, this messed up my wiring and I had to redo it.
 * Finding the I2C adress. The code for this is located here. It took a while to get the wiring right.
 
-## Crash Avoidance Part 4 (Altimeter)
+## Crash_Avoidance_Part_4_(Altimeter)
 
 ### Assignment Description
 
@@ -493,7 +500,10 @@ The module should NOT show a warning light if the device is more than 3 meters a
 
 ### Evidence 
 
-
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/2f70fd7a-791e-49c4-b6dd-c8438e9d9722" 
+     width="500" 
+     height="500" />
+     
 ### Wiring
 
 <img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/768f124e-2b9d-4ccc-bb66-46fa339f5b07" 
@@ -507,6 +517,7 @@ The module should NOT show a warning light if the device is more than 3 meters a
 <br>
      
 ```py
+
 
 import adafruit_mpu6050
 import busio
@@ -524,7 +535,6 @@ displayio.release_displays()
 sda_pin = board.GP14
 scl_pin = board.GP15
 
-
 i2c = busio.I2C(scl_pin, sda_pin)
 display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP16)
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
@@ -535,8 +545,6 @@ led.direction = digitalio.Direction.OUTPUT
 
 sensor = adafruit_mpl3115a2.MPL3115A2(i2c, address=0x60)
 
-
-
 # create the display group
 splash = displayio.Group()
 
@@ -546,14 +554,17 @@ text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
 splash.append(text_area)
 display.show(splash)
 
+tim = sensor.altitude
+
 while True:
      # the order of this command is (font, text, text color, and location)
     text_area.text = f"Rotation: Altitude: \n X:{round(mpu.gyro[0],3)} {round(sensor.altitude, 3)}m \n Y:{round(mpu.gyro[1],3)} Pressure: \n Z:{round(mpu.gyro[2],3)} {round(sensor.pressure, 3)}Pa"
     print(mpu.acceleration)
-    if mpu.acceleration[2] < 0.95 and sensor.altitude < 28: 
+    if mpu.acceleration[2] < 0.95 and sensor.altitude < tim + 3: 
         led.value = True
     else:
         led.value = False
+    
 ```
 </details>
 
@@ -582,6 +593,83 @@ Take a nice screenshot of your Onshape document.
 ### Reflection
 
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
+## FEA_Part_1_(Beam_Design)
+
+### Assignment Description
+
+A beam must stick straight out from a predetermined platform, and the beam gets a bucket screwed into the side of it, then weight gets added. You need to maximize the ammount of weight that that bucket can hold. This is constrained by these contraints:
+* The beam must use the provided attachment block with no modifications
+* The beam with the attachment block must be able to fully engage with the holder
+* The beam must use the example eye bolt mounting geometry
+* The center of the eyebolt hole must be 180 mm from the front face of the attachment block (in a direction perpendicular to the front face)
+* No part of the beam may extend below the bottom face of the attachment block
+* All vertical angles must be >= 45° measured relative to the horizontal plane (no overhangs)
+* The beam must be PLA material
+* The entire beam, including attachment block, must weight <= 13 grams
+
+### Part Link 
+
+[Create a link to your Onshape document](https://cvilleschools.onshape.com/documents/92a40a9416b5315e6a429686/w/2b2c3d00de9869597b85e9c4/e/d26c7202e8ba614aecbc70b2)
+
+### Part Image
+
+![](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/208aaf0e-65b5-4077-bf3f-16a580161035)
+
+### Reflection
+
+For this assignment, three things went wrong:
+* The weight of the object was way too large, so we took advantage of the fact that the nozel is 0.04mm. We removed a 0.03mm layer so that the computer would think that it weighs less than it actually does.
+* We had too much weight again, so this time we filleted the edges down.
+* Originally, the document was unable to be copyed, so we spent a portion of the first class trying to export the object and import it into our own doc which eventually failed because STEP files dont save individual parts, so we couldnt accuratly measure weight.
+
+## FEA_Part_3_(Analysis)
+
+### Assignment Description
+
+For this assignment we were instructed to take our previous part and use FDA to analyse the stress on our part. We Examined the beams we just created in Onshape, and try to optimize the beam in two ways. Our goal was to minimize beam bending while maximizing the mass the beam can support before failing.
+
+### Part Link 
+
+[Onshape Link](https://cvilleschools.onshape.com/documents/92a40a9416b5315e6a429686/w/2b2c3d00de9869597b85e9c4/e/d26c7202e8ba614aecbc70b2)
+
+### Part Image
+
+![](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/835d7772-9255-4fef-b6d9-5831a0995b86)
+
+### Reflection
+
+The FDA simulation forced us to make a big decision fix our curent design or scrap it and start over with the new information we have learned. We decided to do both and redesign the previous part in a new part studio with some new additions. This proved to be the most efective path as we where much faster in creating the new part. Unfortunatly, this was a group project and one of the two groupmates, Jakob, didn't manage to help.
+
+## FEA_Part_4_(Iterative_Design)
+
+### Assignment Description
+
+After simulation, you should have an idea of where your beam needs to improve. Now you’ll enter the iterative design cycle. Improve the beam based on your findings from the FEA simulation, then simulate again. You should be able to dramatically reduce the maximum stress and bending of the beam over the course of several simulations and redesigns. 
+
+### Part Link 
+
+[ENGR4 Beam Starter Document - Graham and Jacob](https://cvilleschools.onshape.com/documents/92a40a9416b5315e6a429686/w/2b2c3d00de9869597b85e9c4/e/0af744a4e82b10b8a53d9b22)
+
+### Part Image
+
+![Assembly 1](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/97dc9db0-4a3e-4a36-9487-72c039fae1a8)
+
+### Reflection
+
+Three things went wrong:
+* When creating the force, the window that pops up prompt you for a direction based on a mate connecter, an instance and the option to load a region. LOAD THE REGION, without any regions loaded, my design holds 25 lbs of force, but with the loading it holds 5.
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/49f29cfd-e078-4d79-890d-97ece9d93a4b" 
+     width="500" 
+     height="500" />
+     
+* Holes in designs are very useful, sense the restrictions were revolved around us not being allowed to create overhangs over 45*, I was at a loss as to how to make the design better, but, we're allowed to use holes at the maximum size of 5mm. These holes take away unnessisary material and allow you to use it elsewhere.
+* Corners of builds are considered breakpoints, this is because all of the stress is compiled into one small edge. Use the fillet tool to reduce this problem, but not the chamfer because that tool doesnt allow for curveness, and that's a nesesity for structural integrity.
+
+Improvments:
+* N/A, our sedign in more complicated and gholds the same weight due to an unfortunate mishap.
+* Designing speed, I spent 8 hours designing this incorrectly, I learned how to OnShape faster and thats it.
 
 &nbsp;
 
