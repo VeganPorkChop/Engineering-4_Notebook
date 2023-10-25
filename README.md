@@ -238,6 +238,9 @@ Actuate a 180 degree servo on liftoff to simulate the launch tower disconnecting
      
 ### Wiring
 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/ffa1c174-23d2-43bb-8854-a5f325e925d5" 
+     width="500" 
+     height="500" />
 
 
 ### Code
@@ -248,10 +251,10 @@ Actuate a 180 degree servo on liftoff to simulate the launch tower disconnecting
      
 ```py
 
-import board                                   
-import time
-import digitalio
-import pwmio
+import board                 # Imports                  
+import time                  -
+import digitalio             -
+import pwmio                 -
 from adafruit_motor import servo
 
 pwm_servo = pwmio.PWMOut(board.GP22, duty_cycle=2 ** 15, frequency=50) # sets frequency of pin, idk how it works, visit(https://docs.circuitpython.org/en/latest/shared-bindings/pwmio/index.html)
@@ -264,7 +267,7 @@ button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.UP
 servo1 = servo.Servo(pwm_servo, min_pulse=500, max_pulse=2500) # this sets the allowed pulses and also creates an object in code
 
-servo1.angle = 0
+servo1.angle = 0 #setting initial values
 count = 0                        
 
 while True:
@@ -330,20 +333,20 @@ In this assignment you have to wire an accelerometer and print it's values as it
      
 ```py
 
-import adafruit_mpu6050
-import busio
-import board                                   
-import time
-import digitalio
+import adafruit_mpu6050    # Imports
+import busio               -
+import board               -                             
+import time                -
+import digitalio           -
 
-sda_pin = board.GP14
-scl_pin = board.GP15
-i2c = busio.I2C(scl_pin, sda_pin)
+sda_pin = board.GP14                # Defining SDA and SCL pins
+scl_pin = board.GP15                -
+i2c = busio.I2C(scl_pin, sda_pin)   # defining i2c function
 mpu = adafruit_mpu6050.MPU6050(i2c)
 
 while True:
-    print("My Values:")
-    print(mpu.acceleration)
+    print("My Values:")      # Printing values
+    print(mpu.acceleration)  -
     time.sleep(1)
 ```
 </details> 
