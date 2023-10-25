@@ -11,7 +11,7 @@
 * [Crash Avoidance Part 2 (Light + Power)](#crash_avoidance_part_2_light__power)
 * [Crash Avoidance Part 3 (OLED Screen)](#crash_avoidance_part_3_oled_screen)
 * [Crash Avoidance Part 4 (Altimeter)](#crash_avoidance_part_4_altimeter)
-* [Onshape_Assignment_Template](#onshape_assignment_template)
+* [Landing Area Part 1 (Functions)](#landing_area_part_1_functions)
 
 &nbsp;
 
@@ -674,6 +674,66 @@ Improvments:
 * N/A, our sedign in more complicated and gholds the same weight due to an unfortunate mishap.
 * Designing speed, I spent 8 hours designing this incorrectly, I learned how to OnShape faster and thats it.
 
+## Landing_Area_Part_1_(Functions)
+
+### Assignment Description
+
+In this assignment you had to make a computer calculate the area of a triangle based off of three inputed coordanites.
+
+### Evidence 
+
+Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
+
+### Code
+
+<details open>
+<summary>Crash Avoidance Part 4 (Altimeter) Code</summary>
+<br>
+     
+```py
+import time # imports
+x1 = 0 # variable values
+x2 = 0 -
+x3 = 0 -
+y1 = 0 -
+y2 = 0 -
+y3 = 0 -
+
+def triangle(x1, y1, x2, y2, x3, y3):# defininf function
+    try:
+        pointArray = Input.split(",")
+        x1 = float(pointArray[0]) # Points location in the array
+        y1 = float(pointArray[1]) -
+        x2 = float(pointArray[2]) -
+        y2 = float(pointArray[3]) -
+        x3 = float(pointArray[4]) -
+        y3 = float(pointArray[5]) -
+        p = (abs(x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2)))/2.0  # finding the area of the triangle
+        return p
+    except:
+        print("Uh Oh. Do it again.") #error message
+        p = 0
+        return p
+
+while True:
+    Input = input("Points: ")# taking input from computer prompt
+
+    area = triangle(x1, y1, x2, y2, x3, y3)# calling defined function
+    if area == 0:  # error for triangle not working
+        print("Are you sure thats a triangle?")
+        continue
+    else:
+        print("Here is yo area! " + str(area)) # writing the triangle area
+```
+</details>
+
+### Reflection
+
+Three things went wrong:
+* To find the area of a triangle you have to find the absolute value of the number, line 17, you can't use "||" signs, instead you have to use the function abs().
+* When taking inputs, you can spling the string into arrays using the object.split() function. This turns your points into ARRAYS, you still have to call the value based off of its location in the array.
+* To print the points you have to turn them into strings otherwise the computer gets mad at you.
+  
 &nbsp;
 
 ## Media Test
