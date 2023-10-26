@@ -687,7 +687,7 @@ Pictures / Gifs of your work should go here. You need to communicate what your t
 ### Code
 
 <details open>
-<summary>Crash Avoidance Part 4 (Altimeter) Code</summary>
+<summary>Landing Area Part 1 (Functions) Code</summary>
 <br>
      
 ```py
@@ -733,7 +733,34 @@ Three things went wrong:
 * To find the area of a triangle you have to find the absolute value of the number, line 17, you can't use "||" signs, instead you have to use the function abs().
 * When taking inputs, you can spling the string into arrays using the object.split() function. This turns your points into ARRAYS, you still have to call the value based off of its location in the array.
 * To print the points you have to turn them into strings otherwise the computer gets mad at you.
-  
+
+
+## Landing Area Part 2 (Plotting)
+
+### Assignment Description
+
+The code must ask for the user to input a set of three coordinates in (x,y) format
+The triangle area must be determined using a function
+If the user inputs coordinates incorrectly (letters or improper format) the code should return to the input stage, it should not throw an error or exit the script
+The triangle area must be printed to the screen in this format: “The area of the triangle with vertices (x,y), (x,y), (x,y) is {area} square km.
+The code must return to the input stage after printing the area, and wait for user input.
+An onboard OLED screen must plot each triangle on a graph relative to the base location.
+
+### Evidence 
+
+Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
+
+### Wiring
+
+https://content.instructables.com/FLK/I4IF/L92SC6MX/FLKI4IFL92SC6MX.jpg?auto=webp&frame=1&fit=bounds&md=9e160d0ed8c68131c471190b64f3174e
+
+### Code
+Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
 &nbsp;
 
 ## Media Test
