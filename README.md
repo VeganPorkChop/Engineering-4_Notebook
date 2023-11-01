@@ -757,7 +757,7 @@ An onboard OLED screen must plot each triangle on a graph relative to the base l
 
 ### Wiring
 
-https://content.instructables.com/FLK/I4IF/L92SC6MX/FLKI4IFL92SC6MX.jpg?auto=webp&frame=1&fit=bounds&md=9e160d0ed8c68131c471190b64f3174e
+![](https://content.instructables.com/FLK/I4IF/L92SC6MX/FLKI4IFL92SC6MX.jpg?auto=webp&frame=1&fit=bounds&md=9e160d0ed8c68131c471190b64f3174e)
 
 ### Code
 
