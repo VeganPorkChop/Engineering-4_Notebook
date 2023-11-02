@@ -1,3 +1,4 @@
+
 # Engineering_4_Notebook
 
 &nbsp;
@@ -682,12 +683,14 @@ In this assignment you had to make a computer calculate the area of a triangle b
 
 ### Evidence 
 
-Pictures / Gifs of your work should go here. You need to communicate what your thing does. 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/a50c329c-2a9d-4564-b2cf-bb0d3bf640ee" 
+     width="500" 
+     height="500" />
 
 ### Code
 
 <details open>
-<summary>Crash Avoidance Part 4 (Altimeter) Code</summary>
+<summary>Landing Area Part 1 (Functions) Code</summary>
 <br>
      
 ```py
@@ -733,7 +736,128 @@ Three things went wrong:
 * To find the area of a triangle you have to find the absolute value of the number, line 17, you can't use "||" signs, instead you have to use the function abs().
 * When taking inputs, you can spling the string into arrays using the object.split() function. This turns your points into ARRAYS, you still have to call the value based off of its location in the array.
 * To print the points you have to turn them into strings otherwise the computer gets mad at you.
-  
+
+
+## Landing Area Part 2 (Plotting)
+
+### Assignment Description
+
+The code must ask for the user to input a set of three coordinates in (x,y) format
+The triangle area must be determined using a function
+If the user inputs coordinates incorrectly (letters or improper format) the code should return to the input stage, it should not throw an error or exit the script
+The triangle area must be printed to the screen in this format: “The area of the triangle with vertices (x,y), (x,y), (x,y) is {area} square km.
+The code must return to the input stage after printing the area, and wait for user input.
+An onboard OLED screen must plot each triangle on a graph relative to the base location.
+
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/5a7157d1-0113-4fa9-b29e-38e290ed0671" 
+     width="500" 
+     height="500" />
+
+### Wiring
+
+![](https://content.instructables.com/FLK/I4IF/L92SC6MX/FLKI4IFL92SC6MX.jpg?auto=webp&frame=1&fit=bounds&md=9e160d0ed8c68131c471190b64f3174e)
+
+### Code
+
+<details open>
+<summary>Landing Area Part 1 (Functions) Code</summary>
+<br>
+     
+```py
+import adafruit_display_shapes
+import busio
+import board
+import time
+import digitalio
+from adafruit_display_text import label
+import adafruit_displayio_ssd1306
+import terminalio
+import displayio
+import adafruit_mpl3115a2
+from adafruit_display_shapes.triangle import Triangle
+from adafruit_display_shapes.line import Line
+from adafruit_display_shapes.circle import Circle
+
+displayio.release_displays()
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+
+splash = displayio.Group()
+
+i2c = busio.I2C(scl_pin, sda_pin)
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP16)
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
+
+x1 = 0
+x2 = 0
+x3 = 0
+y1 = 0
+y2 = 0
+y3 = 0
+
+title = "Graph"
+text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
+splash.append(text_area)
+display.show(splash)
+
+def triangle(x1, y1, x2, y2, x3, y3):
+    try:
+        sametriangle = False
+        
+        if Input == Input:
+            sametriangle = True
+        pointArray = Input.split(",")
+        x1 = float(pointArray[0])
+        y1 = float(pointArray[1])
+        x2 = float(pointArray[2])
+        y2 = float(pointArray[3])
+        x3 = float(pointArray[4])
+        y3 = float(pointArray[5])
+
+        triangle = Triangle(int(x1) + 64, 32 - int(y1), int(x2) + 64, 32 - int(y2), int(x3) + 64, 32 - int(y3), outline=0xFFFFFF)
+        splash.append(triangle)
+        if sametriangle == True:
+            
+            p = (abs(x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2)))/2.0
+            return p
+        
+    except:
+        print("Uh Oh. Do it again.")
+        p = 0
+        return p
+
+    
+
+
+
+while True:
+    vline = Line(64, 0, 64, 64, color=0xFFFFFF)
+    hline = Line(0, 32, 128, 32, color=0xFFFFFF)
+    circle = Circle(64, 32, 2, outline=0xFFFFFF)
+    splash.append(circle)
+    splash.append(hline)
+    splash.append(vline)
+    Input = input("Points: ")
+
+    area = triangle(x1, y1, x2, y2, x3, y3)
+    
+    if area == 0:
+        print("Are you sure thats a triangle?")
+        continue
+    else:
+        print("Here is yo area! " + str(area))
+```
+</details>
+
+### Reflection
+
+Two things went wrong with this assignment:
+* Plotting the verticies of the triangle has to be done in a certain way. You need to add 64 to the x value and subtract the y value from 32 because of how the boards coordanize system is setup.
+* The SDA and SCL pins go to SDA and SCL on the pico, but you also have to use their i2c adress, especially if you made the mistake of using i2c. Its only useful to use adresses if there is more than one thing plugged into the pico through the same pins.
+
 &nbsp;
 
 ## Media Test
