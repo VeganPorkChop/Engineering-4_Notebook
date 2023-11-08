@@ -919,6 +919,91 @@ while True:
 `
 
 
+## Morse Code Part 2 (Transmission)
+
+### Assignment Description
+
+Your script must accept text input by the user
+If the user types “-q”, your script must exit
+If the user types anything else, your script must translate the text to morse code dots and dashes, and print those to the monitor
+The printed text must use a space to show breaks between letters, and a slash to show breaks between words
+The script must flash an LED to transmit the morse code message using the timing sequence shown below
+
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/f72e3079-31d1-47d5-b8f1-8c594515e7ca" 
+     width="500" 
+     height="500" />
+
+### Wiring
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/5eff919e-2c4d-46c3-b3e3-bd479d623a29" 
+     width="500" 
+     height="500" />
+
+### Code
+
+<details open>
+<summary>Morse Code Part 2 (Transmission) Code</summary>
+<br>
+     
+```py
+import board
+import pwmio
+import time
+
+buzzer = pwmio.PWMOut(board.GP17, duty_cycle=0, frequency=1440)
+OFF = 0
+ON = 2**15
+DOT = 0.05
+DASH = 3*DOT
+
+ 
+# Dictionary representing the morse code chart
+MORSE_CODE = { 'A':'.-', 'B':'-...',
+    'C':'-.-.', 'D':'-..', 'E':'.',
+    'F':'..-.', 'G':'--.', 'H':'....',
+    'I':'..', 'J':'.---', 'K':'-.-',
+    'L':'.-..', 'M':'--', 'N':'-.',
+    'O':'---', 'P':'.--.', 'Q':'--.-',
+    'R':'.-.', 'S':'...', 'T':'-',
+    'U':'..-', 'V':'...-', 'W':'.--',
+    'X':'-..-', 'Y':'-.--', 'Z':'--..',
+    '1':'.----', '2':'..---', '3':'...--',
+    '4':'....-', '5':'.....', '6':'-....',
+    '7':'--...', '8':'---..', '9':'----.',
+    '0':'-----', ',':'--..--', '.':'.-.-.-',
+    '?':'..--..', '/':'-..-.', '-':'-....-',
+    '(':'-.--.', ')':'-.--.-', ' ':'/'}
+BEEP = {'.': DOT , '-': DASH}
+
+while True:
+    Input = input()
+    x = Input.upper()
+    if Input == str("-q"):
+        break
+    for letter in x:
+        if letter == " ":
+            time.sleep(7*DOT)
+            print("/", end=" ")
+            continue
+        print(MORSE_CODE[letter], end=" ")
+        for pulse in MORSE_CODE[letter]:
+            # print(f"pulsing for {pulse} for letter {letter}")
+            buzzer.duty_cycle = ON
+            time.sleep(BEEP[pulse])
+            buzzer.duty_cycle = OFF
+            time.sleep(DOT)
+        time.sleep(3*DOT)
+    print()
+```
+</details>
+
+### Reflection
+
+`
+`
+`
 &nbsp;
 
 ## Media Test
