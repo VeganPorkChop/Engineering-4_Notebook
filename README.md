@@ -858,6 +858,67 @@ Two things went wrong with this assignment:
 * Plotting the verticies of the triangle has to be done in a certain way. You need to add 64 to the x value and subtract the y value from 32 because of how the boards coordanize system is setup.
 * The SDA and SCL pins go to SDA and SCL on the pico, but you also have to use their i2c adress, especially if you made the mistake of using i2c. Its only useful to use adresses if there is more than one thing plugged into the pico through the same pins.
 
+## Morse Code Part 1 (Translation)
+
+### Assignment Description
+
+Your script must accept text input by the user
+If the user types “-q”, your script must exit
+If the user types anything else, your script must translate the text to morse code dots and dashes, and print those to the monitor
+The printed text must use a space to show breaks between letters, and a slash to show breaks between words
+
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/bab46569-d0fe-4cc5-b56a-41fa805ad999" 
+     width="500" 
+     height="500" />
+     
+### Code
+
+<details open>
+<summary>Morse Code Part 1 (Translation) Code</summary>
+<br>
+     
+```py
+import board
+import pulseio
+import time
+
+# Dictionary representing the morse code chart
+MORSE_CODE = { 'A':'.-', 'B':'-...',
+    'C':'-.-.', 'D':'-..', 'E':'.',
+    'F':'..-.', 'G':'--.', 'H':'....',
+    'I':'..', 'J':'.---', 'K':'-.-',
+    'L':'.-..', 'M':'--', 'N':'-.',
+    'O':'---', 'P':'.--.', 'Q':'--.-',
+    'R':'.-.', 'S':'...', 'T':'-',
+    'U':'..-', 'V':'...-', 'W':'.--',
+    'X':'-..-', 'Y':'-.--', 'Z':'--..',
+    '1':'.----', '2':'..---', '3':'...--',
+    '4':'....-', '5':'.....', '6':'-....',
+    '7':'--...', '8':'---..', '9':'----.',
+    '0':'-----', ',':'--..--', '.':'.-.-.-',
+    '?':'..--..', '/':'-..-.', '-':'-....-',
+    '(':'-.--.', ')':'-.--.-', ' ':'/'}
+
+while True:
+    Input = input()
+    x = Input.upper()
+    for letter in x:
+        print(MORSE_CODE[letter], end=" ")
+    if Input == str("-q"):
+        break
+
+```
+</details>
+
+### Reflection
+
+`
+`
+`
+
+
 &nbsp;
 
 ## Media Test
