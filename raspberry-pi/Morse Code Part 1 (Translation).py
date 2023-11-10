@@ -24,29 +24,11 @@ MORSE_CODE = { 'A':'.-', 'B':'-...',
     '0':'-----', ',':'--..--', '.':'.-.-.-',
     '?':'..--..', '/':'-..-.', '-':'-....-',
     '(':'-.--.', ')':'-.--.-', ' ':'/'}
-BEEP = {'.-':(DOT, DASH) , '-...':(DASH, DOT, DOT, DOT),
-    '-.-.':(DASH, DOT, DASH, DOT), '-..':(DASH, DOT, DOT),'.':(DOT),
-    '..-.':(DOT, DOT, DASH, DOT), '--.':(DASH, DASH, DOT), '....':(DOT, DOT, DOT, DOT),
-    '..':(DOT, DOT), '.---':(DOT, DASH, DASH, DASH), '-.-':(DASH, DOT, DASH),
-    '.-..':(DOT, DASH, DOT, DOT), '--':(DASH, DASH), '-.':(DASH, DOT),
-    '---':(DASH, DASH, DASH), '.--.':(DOT, DASH, DASH, DOT), '--.-':(DASH, DASH, DOT, DASH),
-    '.-.':(DOT, DASH, DOT), '...':(DOT, DOT, DOT), '-':(DASH),
-    '..-':(DOT, DOT, DASH), '...-':(DOT, DOT, DOT, DASH), '.--':(DOT, DASH, DASH),
-    '-..-':(DASH, DOT, DOT, DASH), '-.--':(DASH, DOT, DASH, DASH), '--..':(DASH, DASH, DOT, DOT),
-    '.----':(DOT, DASH, DASH, DASH, DASH), '..---':(DOT, DOT, DASH, DASH, DASH), '...--':(DOT, DOT, DOT, DASH, DASH),
-    '....-':(DOT, DOT, DOT, DOT, DASH), '.....':(DOT, DOT, DOT, DOT, DOT), '-....':(DASH, DOT, DOT, DOT, DOT),
-    '--...':(DASH, DASH, DOT, DOT, DOT),'---..':(DASH, DASH, DASH< DOT, DOT), '----.':(DASH, DASH, DASH, DASH, DOT),
-    '-----':(DASH, DASH, DASH, DASH, DASH), '--..--':(DASH, DASH, DOT, DOT, DASH, DASH), '.-.-.-':(DOT, DASH, DOT, DASH, DOT, DASH),
-    '..--..':(DOT, DOT, DASH, DASH, DOT, DOT), '-..-.':(DASH, DOT, DOT, DASH, DOT), '-....-':(DASH, DOT, DOT, DOT, DOT, DASH),
-    '-.--.':(DASH, DOT, DASH, DASH, DOT), '-.--.-':(DASH, DOT, DASH, DASH, DOT, DASH)}
 
 while True:
     Input = input()
     x = Input.upper()
     for letter in x:
         print(MORSE_CODE[letter], end=" ")
-        buzzer.duty_cycle = ON
-        time.sleep(BEEP[MORSE_CODE[letter]])
-        buzzer.duty_cycle = OFF
     if Input == str("-q"):
         break
