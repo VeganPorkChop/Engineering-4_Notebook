@@ -1029,7 +1029,44 @@ You must be able to retrieve this data when plugged back into the computer
 This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
 
 ### Code
-Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+<details open>
+<summary>Morse Code Part 2 (Transmission) Code</summary>
+<br>
+     
+```py
+import adafruit_mpu6050
+import busio
+import board                                   
+import time
+import digitalio
+
+led = digitalio.DigitalInOut(board.GP20)
+led.direction = digitalio.Direction.OUTPUT
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+i2c = busio.I2C(scl_pin, sda_pin)
+mpu = adafruit_mpu6050.MPU6050(i2c)
+
+st = time.monotonic()
+tilt = False
+
+while True:
+    with open("/data.csv", "a") as datalog:
+        ct = time.monotonic()
+        if mpu.acceleration[2] < 9:
+            led.value = True
+            tilt = True
+        else:
+            led.value = False
+            tilt = False
+        datalog.write(f"{float(ct)},{round(mpu.gyro[0],3)},{round(mpu.gyro[1],3)},{round(mpu.gyro[2],3)},{str(tilt)},{mpu.acceleration[2]}\n")
+        time.sleep(0.5)
+        datalog.flush()
+```
+</details>
+
 
 ### Reflection
 
