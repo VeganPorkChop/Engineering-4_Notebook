@@ -1006,7 +1006,7 @@ while True:
 `
 &nbsp;
 
-## Data Part 1 (Storage)
+## Data_Part_1_(Storage)
 
 ### Assignment Description
 
@@ -1025,13 +1025,14 @@ You must be able to retrieve this data when plugged back into the computer
      height="500" />
 
 ### Wiring
-
-This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/1bca0080-c1db-4088-961c-56932dd320a9" 
+     width="500" 
+     height="500" />
 
 ### Code
 
 <details open>
-<summary>Morse Code Part 2 (Transmission) Code</summary>
+<summary>Data Part 1 (Storage) Code</summary>
 <br>
      
 ```py
@@ -1070,8 +1071,28 @@ while True:
 
 ### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+Three things went wrong:
+* When trying to edit the code. You have to restart the pico and turn it to "code mode" otherwise you get an error that explains how stupid you are for trying to write in a read only file type.
+* When using an fString to write your data, [refrenece this](https://github.com/adafruit/circuitpython/issues/4723)
+* It is very important to keep clean wiring, my wiring was very iffy and i got my board reset multiple times on end.
 
+## Data Part 2 (Analysis)
+
+### Assignment Description
+
+Create a line graph with time on the X axis and acceleration on the Y axis. X, Y, and Z accelerations must be present on the same plot.
+Create a chart with time on the X axis and whether or not the Pico was tilted on the Y axis. 
+Title each graph, and label each axis including units. 
+
+### Evidence 
+
+![](https://docs.google.com/spreadsheets/d/1zKqn4CAw0jYXbb_LVEPOSLfIYsKJW0tyDATUwr-tAD8/edit#gid=0)
+
+### Reflection
+
+Two things went wrong:
+* I tried to use Excel, dont use excel
+* When making the chart, make sure that the units are clear. For example, I used degrees/second for my acceleration of rotation, but its very possible to mess that up by saying theyre radians. 
 ## Media Test
 
 Your readme will have various images and gifs on it. Upload a test image and test gif to make sure you've got the process figured out. Pick whatever image and gif you want!
