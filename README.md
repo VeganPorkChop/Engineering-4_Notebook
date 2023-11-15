@@ -1006,6 +1006,35 @@ while True:
 `
 &nbsp;
 
+## Data Part 1 (Storage)
+
+### Assignment Description
+
+Your Pico must operate in “headless” mode – unplugged from the computer with a battery
+An LED must turn on when the Pico is tilted (same as Crash Avoidance Part 2)
+Your Pico must record time, X, Y, Z acceleration data, and whether or not the Pico was tilted
+You must save this information to the Pico’s onboard storage
+You must blink the onboard LED every time you save data
+You must be able to retrieve this data when plugged back into the computer
+
+
+### Evidence 
+
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/8fbcfef3-9c31-4cde-b972-004f5f877153" 
+     width="500" 
+     height="500" />
+
+### Wiring
+
+This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
+### Code
+Give me a link to your code. [Something like this](https://github.com/millerm22/Engineering_4_Notebook/blob/main/Raspberry_Pi/hello_world.py). Don't make me hunt through your folders, give me a nice link to click to take me there! Remember to **COMMENT YOUR CODE** if you want full credit. 
+
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
 ## Media Test
 
 Your readme will have various images and gifs on it. Upload a test image and test gif to make sure you've got the process figured out. Pick whatever image and gif you want!
