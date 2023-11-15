@@ -4,7 +4,7 @@ import board
 import time
 import digitalio
 
-led = digitalio.DigitalInOut(board.GP0)
+led = digitalio.DigitalInOut(board.GP20)
 led.direction = digitalio.Direction.OUTPUT
 
 sda_pin = board.GP14
@@ -15,21 +15,15 @@ mpu = adafruit_mpu6050.MPU6050(i2c)
 st = time.monotonic()
 tilt = False
 
-def blink():
-    ct = time.monotonic()
-    led.value = True
-    while time.monotonic < 0.25 + ct:
-        time.sleep(0.01)
-    led.value = False
-
-with open("/data.csv", "a") as datalog:
-    while True:
+while True:
+    with open("/data.csv", "a") as datalog:
         ct = time.monotonic()
-        led.value = False
-        tilt = False
-        if mpu.acceleration[2] < 0.95:
+        if mpu.acceleration[2] < 9:
+            led.value = True
             tilt = True
-        datalog.write(f"Time Elapsed: {float(ct)} Rotation: X:{round(mpu.gyro[0],3)} Y:{round(mpu.gyro[1],3)} Z:{round(mpu.gyro[2],3)} Tilted:{str(tilt)}\n")
-        blink()
+        else:
+            led.value = False
+            tilt = False
+        datalog.write(f"{float(ct)},{round(mpu.gyro[0],3)},{round(mpu.gyro[1],3)},{round(mpu.gyro[2],3)},{str(tilt)},{mpu.acceleration[2]}\n")
+        time.sleep(0.5)
         datalog.flush()
-        time.sleep(0.25)
