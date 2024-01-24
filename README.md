@@ -913,10 +913,11 @@ while True:
 </details>
 
 ### Reflection
-
-`
-`
-`
+* For the break function, there is a specific word that is used to break the code and stop its running. "break".
+* The for function is vital for this code, the for loop is structured like this:
+```py
+ or x in y:
+```
 
 
 ## Morse Code Part 2 (Transmission)
@@ -1000,10 +1001,9 @@ while True:
 </details>
 
 ### Reflection
-
-`
-`
-`
+* I had some extra time and changed the light into a piezo buzzer, the only difference is the PMW. When using PMW make sure your duty cycle and frequency are consistent with your buzzer, otherwise, they won't work.
+* The code turns the buzzer on waits for x time and then turns it off, this is more efficient than turning it on for a specific amount of time because I do not have to deal with time.monotonic.
+* When coding, it helps to know that all the lengths in dots are based on the dot 0.25s. for efficiency sake, I made that 0.05s instead
 &nbsp;
 
 ## Data_Part_1_(Storage)
@@ -1091,7 +1091,7 @@ Title each graph, and label each axis including units.
 ### Reflection
 
 Two things went wrong:
-* I tried to use Excel, dont use excel
+* I tried to use Excel, don't use excel.
 * When making the chart, make sure that the units are clear. For example, I used degrees/second for my acceleration of rotation, but its very possible to mess that up by saying theyre radians. 
 ## Media Test
 
