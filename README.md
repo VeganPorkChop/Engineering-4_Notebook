@@ -1075,7 +1075,8 @@ Title each graph, and label each axis including units.
 
 ### Evidence 
 
-![IMG-1927](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/b756d3e4-8823-4002-a4a8-26e1eb99e176)
+![Capture](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/2f9a7df3-7f55-4c46-a41b-d907997a59cd)
+
 
 ### Reflection
 
