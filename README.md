@@ -3,19 +3,6 @@
 
 &nbsp;
 
-## Table of Contents
-* [Raspberry_Pi_Launch Pad (part 1)](#launch_pad_part_1)
-* [Raspberry_Pi_Launch Pad (part 2)](#launch_pad_part_2_lights)
-* [Raspberry_Pi_Launch Pad (part 3)](#launch_pad_part_3_button)
-* [Raspberry_Pi_Launch Pad (part 4)](#launch_pad_part_4_servo)
-* [Crash Avoidance Part 1 (Accelerometer)](#crash_avoidance_part_1_accelerometer)
-* [Crash Avoidance Part 2 (Light + Power)](#crash_avoidance_part_2_light__power)
-* [Crash Avoidance Part 3 (OLED Screen)](#crash_avoidance_part_3_oled_screen)
-* [Crash Avoidance Part 4 (Altimeter)](#crash_avoidance_part_4_altimeter)
-* [Landing Area Part 1 (Functions)](#landing_area_part_1_functions)
-
-&nbsp;
-
 ## Raspberry_Pi_Assignment_Template
 
 ### Assignment Description
@@ -429,7 +416,7 @@ In this assignment the The module must have an accelerometer that continuously r
 
 ### Wiring
 
-<img src="https://mail.google.com/mail/u/0?ui=2&ik=33ad3a32c0&attid=0.1&permmsgid=msg-f:1777749083368132753&th=18abd55f55ef1091&view=att&disp=safe" 
+<img src="https://github.com/VeganPorkChop/Engineering-4_Notebook/blob/main/images/IMG-1927.jpg" 
      width="500" 
      height="500" /> 
      
