@@ -903,7 +903,8 @@ while True:
 * For the break function, there is a specific word that is used to break the code and stop its running. "break".
 * The for function is vital for this code, the for loop is structured like this:
 ```py
- or x in y:
+ for x in y:
+     do this
 ```
 
 
@@ -991,6 +992,7 @@ while True:
 * I had some extra time and changed the light into a piezo buzzer, the only difference is the PMW. When using PMW make sure your duty cycle and frequency are consistent with your buzzer, otherwise, they won't work.
 * The code turns the buzzer on waits for x time and then turns it off, this is more efficient than turning it on for a specific amount of time because I do not have to deal with time.monotonic.
 * When coding, it helps to know that all the lengths in dots are based on the dot 0.25s. for efficiency sake, I made that 0.05s instead
+* 
 &nbsp;
 
 ## Data_Part_1_(Storage)
@@ -1073,7 +1075,7 @@ Title each graph, and label each axis including units.
 
 ### Evidence 
 
-![](https://docs.google.com/spreadsheets/d/1zKqn4CAw0jYXbb_LVEPOSLfIYsKJW0tyDATUwr-tAD8/edit#gid=0)
+![IMG-1927](https://github.com/VeganPorkChop/Engineering-4_Notebook/assets/91289762/b756d3e4-8823-4002-a4a8-26e1eb99e176)
 
 ### Reflection
 
